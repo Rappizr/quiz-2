@@ -21,7 +21,7 @@ public class Passenger {
         this.name = name;
     }
 
-    public String getCode() { 
+    public String getCode() {
         return code;
     }
 
