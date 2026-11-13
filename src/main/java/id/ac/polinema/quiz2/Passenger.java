@@ -16,21 +16,21 @@ public class Passenger {
     private String passengerId;
     private String name;
 
-    public Passenger(String passengerId, String name) {
+    public Passenger(String passengerId, String name){
         this.passengerId = passengerId;
         this.name = name;
     }
 
-    public String getPassengerId() {
+    public String getPassengerId(){
         return passengerId;
     }
 
-    public String getName() {
+    public String getName(){
         return name;
     }
 
-    public void setName(String name) {
-        if (name != null && !name.trim().isEmpty()) {
+    public void setName(String name){
+        if (name != null && !name.trim().isEmpty()){
             this.name = name;
         }
     }
