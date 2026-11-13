@@ -13,16 +13,16 @@ package id.ac.polinema.quiz2;
 // Pertahankan baris package bawaan file aslinya di sini
 
 public class Passenger {
-    private String code;
+    private String passengerId;
     private String name;
 
-    public Passenger(String code, String name) {
-        this.code = code;
+    public Passenger(String passengerId, String name) {
+        this.passengerId = passengerId;
         this.name = name;
     }
 
-    public String getCode() {
-        return code;
+    public String getPassengerId() {
+        return passengerId;
     }
 
     public String getName() {
