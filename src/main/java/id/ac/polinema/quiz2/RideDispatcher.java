@@ -24,20 +24,20 @@ public class RideDispatcher {
     private List<Ride> orders;
     private Map<String, Ride> orderMap;
 
-    public RideDispatcher(PaymentMethod payment) {
+    public RideDispatcher(PaymentMethod payment){
         this.payment = payment;
         this.orders = new ArrayList<>();
         this.orderMap = new HashMap<>();
     }
 
     public void add(Ride order) {
-        if (order != null) {
+        if(order != null) {
             orders.add(order);
             orderMap.put(order.getRideId(), order);
         }
     }
 
-    public Ride findById(String rideId) {
+    public Ride findById(String rideId){
         return orderMap.get(rideId);
     }
 
@@ -49,9 +49,9 @@ public class RideDispatcher {
         return new ArrayList<>(orders);
     }
 
-    public void checkout(String rideId) {
+    public void checkout(String rideId){
         Ride order = findById(rideId);
-        if (order != null && payment != null) {
+        if (order != null && payment != null){
             payment.pay(order.getRideId(), order.calculateFare());
         }
     }
