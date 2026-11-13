@@ -1,5 +1,7 @@
 package id.ac.polinema.quiz2;
 
+import java.util.List;
+
 /**
  * Tempat bebas untuk mencoba programmu. Kelas ini TIDAK dinilai.
  *
@@ -15,6 +17,31 @@ package id.ac.polinema.quiz2;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Ojek Online: tulis percobaanmu di sini.");
+        Passenger passenger = new Passenger("P1", "Rappizr");
+        passenger.setName(" ");
+        passenger.setName("Mukhammad Rappi Zabra");
+        System.out.println("Penumpang: "+passenger.getPassengerId()+" - "+passenger.getName());
+
+        Ride bikeRide = new BikeRide("L1", passenger, 5.0);
+        Ride carRide = new CarRide("L2", passenger, 5.0);
+
+        System.out.println("Tarif Ojek Motor (5Km): Rp " + bikeRide.calculateFare());
+        System.out.println("Tarif Ojek Mobil (5Km): Rp " + carRide.calculateFare());
+        
+        List<Ride> rides = List.of(bikeRide, carRide);
+        System.out.println("Total Tarif: Rp " + RideCalculator.totalFare(rides));
+        System.out.println("Total Asuransi: Rp " + RideCalculator.totalInsurance(rides));
+
+        Ride invalidRide = new BikeRide("L3", passenger, 55.0);
+        System.out.println("L1 Apakah valid? " + RideCalculator.isAcceptable(bikeRide)); 
+        System.out.println("L3 (55km) Apakah valid? " + RideCalculator.isAcceptable(invalidRide)); 
+
+        RideDispatcher dispatcher = new RideDispatcher(new CashPayment());
+        dispatcher.add(bikeRide);
+        dispatcher.add(carRide);
+
+        dispatcher.checkout("L1"); 
+        dispatcher.checkout("L2");
+    
     }
 }
