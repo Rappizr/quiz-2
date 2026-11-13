@@ -23,11 +23,11 @@ public class RideCalculator {
         return total;
     }
 
-    public static double totalInsurance(List<Ride> orders) {
+    public static double totalInsurance(List<Ride> orders){
         double total = 0.0;
-        if(orders != null) {
-            for(Ride order : orders) {
-                if(order instanceof Insurable) {
+        if(orders != null){
+            for(Ride order : orders){
+                if(order instanceof Insurable){
                     total += ((Insurable) order).insuranceFee();
                 }
             }
@@ -35,18 +35,18 @@ public class RideCalculator {
         return total;
     }
 
-    public static void validate(Ride order) throws InvalidDistanceException {
+    public static void validate(Ride order) throws InvalidDistanceException{
         double distance = order.getDistanceKm();
-        if(distance <= 0 || distance > 50.0) {
+        if(distance <= 0 || distance > 50.0){
             throw new InvalidDistanceException("Invalid distance: " + distance);
         }
     }
 
-    public static boolean isAcceptable(Ride order) {
+    public static boolean isAcceptable(Ride order){
         try{
             validate(order);
             return true;
-        }catch(InvalidDistanceException e) {
+        }catch(InvalidDistanceException e){
             return false;
         }
     }
