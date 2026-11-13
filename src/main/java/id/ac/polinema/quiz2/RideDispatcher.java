@@ -30,8 +30,8 @@ public class RideDispatcher {
         this.orderMap = new HashMap<>();
     }
 
-    public void add(Ride order) {
-        if(order != null) {
+    public void add(Ride order){
+        if(order != null){
             orders.add(order);
             orderMap.put(order.getRideId(), order);
         }
@@ -41,11 +41,11 @@ public class RideDispatcher {
         return orderMap.get(rideId);
     }
 
-    public int count() {
+    public int count(){
         return orders.size();
     }
 
-    public List<Ride> getOrders() {
+    public List<Ride> getOrders(){
         return new ArrayList<>(orders);
     }
 
