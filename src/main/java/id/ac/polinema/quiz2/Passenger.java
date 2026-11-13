@@ -10,33 +10,28 @@ package id.ac.polinema.quiz2;
  * Deklarasikan sendiri field-nya sesuai diagram kelas di README.
  * Semua field harus private.
  */
-public class Passenger {
+// Pertahankan baris package bawaan file aslinya di sini
 
-    /**
-     * Menyimpan kedua parameter ke field.
-     *
-     * @param passengerId kode penumpang
-     * @param name nama penumpang
-     */
-    public Passenger(String passengerId, String name) {
-        throw new UnsupportedOperationException("Not implemented yet");
+public class Passenger {
+    private String code;
+    private String name;
+
+    public Passenger(String code, String name) {
+        this.code = code;
+        this.name = name;
     }
 
-    public String getPassengerId() {
-        throw new UnsupportedOperationException("Not implemented yet");
+    public String getCode() { 
+        return code;
     }
 
     public String getName() {
-        throw new UnsupportedOperationException("Not implemented yet");
+        return name;
     }
 
-    /**
-     * Mengubah nama. Nama yang null atau kosong (hanya spasi) tidak valid:
-     * abaikan dan biarkan nama lama tetap.
-     *
-     * @param name nama baru
-     */
     public void setName(String name) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (name != null && !name.trim().isEmpty()) {
+            this.name = name;
+        }
     }
 }
